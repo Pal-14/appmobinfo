@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { StyleSheet, Text, View, Image } from "react-native";
+import { StyleSheet, Text, View, Image, Linking } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 import { getDataApi } from "../Outil/Fonction";
 
@@ -11,8 +11,7 @@ export default function Page1() {
   }, [dataApi === undefined]);
 
   return (
-    <ScrollView
-    horizontal={false}>
+    <ScrollView horizontal={false}>
       <View style={style.container}>
         <Text style={style.titre}>L'info en direct</Text>
 
@@ -32,6 +31,23 @@ export default function Page1() {
           <Text></Text>
           <Text> Url : {dataApi?.articles[0]?.url}</Text>
           <Text> </Text>
+          <Image
+            style={style.tinyLogo}
+            source={{
+              uri: "https://s.yimg.com/os/creatr-uploaded-images/2021-10/3f1fdd10-3081-11ec-af7f-02d98e33fc20",
+            }}
+          />
+          <Text
+            style={{ color: "blue" }}
+            onPress={() =>
+              Linking.openURL(
+                "https://www.engadget.com/the-morning-after-will-facebook-change-its-name-111537269.html"
+              )
+            }
+          >
+            Article link
+          </Text>
+
           <Text> Published At: {dataApi?.articles[0]?.publishedAt} </Text>
           <Text> </Text>
           <Text></Text>
@@ -206,10 +222,12 @@ const style = StyleSheet.create({
     textAlign: "center",
     alignContent: "center",
     justifyContent: "center",
-    alignItems:"center",
+    alignItems: "center",
   },
-
- 
+  tinyLogo: {
+    width: 50,
+    height: 50,
+  },
 });
 
 {
