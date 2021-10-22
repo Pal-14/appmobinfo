@@ -11,186 +11,912 @@ export default function Page1() {
   }, [dataApi === undefined]);
 
   return (
-    <ScrollView horizontal={false}>
-      <View style={style.container}>
-        <Text style={style.titre}>L'info en direct</Text>
+    <ScrollView horizontal={false} style={style.ScrollView}>
+      <View style={style.titleView}>
+        {/* Vue titre */}
+        {/* Titre de la page */}
+        <Text style={style.titleh1}>L'info en direct</Text>
 
-        <View style={style.container1}>
-          <Text> Name: {dataApi?.articles[0]?.source?.id}</Text>
-          <Text> </Text>
-          <Text> Author : {dataApi?.articles[0]?.author}</Text>
-          <Text> </Text>
-          <Text></Text>
-          <Text> Title : </Text>
-          <Text></Text>
-          <Text>{dataApi?.articles[0]?.title}</Text>
-          <Text> </Text>
-          <Text> Description : </Text>
-          <Text>{dataApi?.articles[0]?.description}</Text>
-          <Text> </Text>
-          <Text></Text>
-          <Text> Url : {dataApi?.articles[0]?.url}</Text>
-          <Text> </Text>
-          <Image
-            style={style.tinyLogo}
-            source={{
-              uri: "https://s.yimg.com/os/creatr-uploaded-images/2021-10/3f1fdd10-3081-11ec-af7f-02d98e33fc20",
-            }}
-          />
-          <Text
-            style={{ color: "blue" }}
-            onPress={() =>
-              Linking.openURL(
-                "https://www.engadget.com/the-morning-after-will-facebook-change-its-name-111537269.html"
-              )
-            }
-          >
-            Article link
-          </Text>
+      </View>
 
-          <Text> Published At: {dataApi?.articles[0]?.publishedAt} </Text>
-          <Text> </Text>
-          <Text></Text>
-          <Text> Content :</Text>
-          <Text> {dataApi?.articles[0]?.content}</Text>
-        </View>
+      
 
-        <View style={style.container1}>
-          <Text> Name: {dataApi?.articles[1]?.source?.id}</Text>
-          <Text> </Text>
-          <Text> Author : {dataApi?.articles[1]?.author}</Text>
-          <Text> </Text>
-          <Text></Text>
-          <Text> Title : </Text>
-          <Text></Text>
-          <Text>{dataApi?.articles[1]?.title}</Text>
-          <Text> </Text>
-          <Text> Description : </Text>
-          <Text>{dataApi?.articles[1]?.description}</Text>
-          <Text> </Text>
-          <Text></Text>
-          <Text> Url : {dataApi?.articles[1]?.url}</Text>
-          <Text> </Text>
-          <Text> Published At: {dataApi?.articles[1]?.publishedAt} </Text>
-          <Text> </Text>
-          <Text></Text>
-          <Text> Content :</Text>
-          <Text> {dataApi?.articles[1]?.content}</Text>
-        </View>
+        {/* *************************************************************************************************************************************************** */}
+        {/* Vue avec 1 er article */}
+      
 
-        <View style={style.container1}>
-          <Text> Name: {dataApi?.articles[2]?.source?.id}</Text>
-          <Text> </Text>
-          <Text> Author : {dataApi?.articles[2]?.author}</Text>
-          <Text> </Text>
-          <Text></Text>
-          <Text> Title : </Text>
-          <Text></Text>
-          <Text>{dataApi?.articles[2]?.title}</Text>
-          <Text> </Text>
-          <Text> Description : </Text>
-          <Text>{dataApi?.articles[2]?.description}</Text>
-          <Text> </Text>
-          <Text></Text>
-          <Text> Url : {dataApi?.articles[2]?.url}</Text>
-          <Text> </Text>
-          <Text> Published At: {dataApi?.articles[2]?.publishedAt} </Text>
-          <Text> </Text>
-          <Text></Text>
-          <Text> Content :</Text>
-          <Text> {dataApi?.articles[2]?.content}</Text>
-        </View>
+      <View style={style.articlesView}>
+        <View>
+          <View style={style.articlesView}>
+            <View>
+              <View>
+                {/* Titre 2*/}
+                <Text style={style.titleh2}>{dataApi?.articles[0]?.title}</Text>
+                {/* Image */}
+                <Image
+                  style={style.tinyLogo}
+                  source={{ uri: `${dataApi?.articles[0]?.urlToImage}` }}
+                />
+                {/* Article */}
+                <Text style={style.descriptionArticle}>
+                  {dataApi?.articles[0]?.description}
+                  {/* Url de l'article complet */}
+                  <Text
+                    style={style.linkArticle}
+                    onPress={() =>
+                      Linking.openURL(`${dataApi?.articles[0]?.url}`)
+                    }
+                  >
+                    Link to full article
+                  </Text>
+                </Text>
 
-        <View style={style.container1}>
-          <Text> Name: {dataApi?.articles[3]?.source?.id}</Text>
-          <Text> </Text>
-          <Text> Author : {dataApi?.articles[3]?.author}</Text>
-          <Text> </Text>
-          <Text></Text>
-          <Text> Title : </Text>
-          <Text></Text>
-          <Text>{dataApi?.articles[3]?.title}</Text>
-          <Text> </Text>
-          <Text> Description : </Text>
-          <Text>{dataApi?.articles[3]?.description}</Text>
-          <Text> </Text>
-          <Text></Text>
-          <Text> Url : {dataApi?.articles[3]?.url}</Text>
-          <Text> </Text>
-          <Text> Published At: {dataApi?.articles[3]?.publishedAt} </Text>
-          <Text> </Text>
-          <Text></Text>
-          <Text> Content :</Text>
-          <Text> {dataApi?.articles[3]?.content}</Text>
-        </View>
+                {/* Source de l'article */}
 
-        <View style={style.container1}>
-          <Text> Name: {dataApi?.articles[4]?.source?.id}</Text>
-          <Text> </Text>
-          <Text> Author : {dataApi?.articles[4]?.author}</Text>
-          <Text> </Text>
-          <Text></Text>
-          <Text> Title : </Text>
-          <Text></Text>
-          <Text>{dataApi?.articles[4]?.title}</Text>
-          <Text> </Text>
-          <Text> Description : </Text>
-          <Text>{dataApi?.articles[4]?.description}</Text>
-          <Text> </Text>
-          <Text></Text>
-          <Text> Url : {dataApi?.articles[4]?.url}</Text>
-          <Text> </Text>
-          <Text> Published At: {dataApi?.articles[4]?.publishedAt} </Text>
-          <Text> </Text>
-          <Text></Text>
-          <Text> Content :</Text>
-          <Text> {dataApi?.articles[4]?.content}</Text>
-        </View>
+                <Text style={style.source}>
+                  Source :<Text>{dataApi?.articles[0]?.source?.id}</Text>
+                </Text>
+                {/* Auteur de l'article */}
+                <Text style={style.authorArticle}>
+                  By :<Text>{dataApi?.articles[0]?.author}</Text>
+                </Text>
+                {/* Date de publication */}
+                <Text style={style.published}>
+                  {dataApi?.articles[0]?.publishedAt}
+                </Text>
+              </View>
+            </View>
+          </View>
 
-        <View style={style.container1}>
-          <Text> Name: {dataApi?.articles[5]?.source?.id}</Text>
-          <Text> </Text>
-          <Text> Author : {dataApi?.articles[5]?.author}</Text>
-          <Text> </Text>
-          <Text></Text>
-          <Text> Title : </Text>
-          <Text></Text>
-          <Text>{dataApi?.articles[5]?.title}</Text>
-          <Text> </Text>
-          <Text> Description : </Text>
-          <Text>{dataApi?.articles[5]?.description}</Text>
-          <Text> </Text>
-          <Text></Text>
-          <Text> Url : {dataApi?.articles[5]?.url}</Text>
-          <Text> </Text>
-          <Text> Published At: {dataApi?.articles[5]?.publishedAt} </Text>
-          <Text> </Text>
-          <Text></Text>
-          <Text> Content :</Text>
-          <Text> {dataApi?.articles[5]?.content}</Text>
-        </View>
+          {/* *************************************************************************************************************************************************** */}
+          {/* Vue avec 2 eme article */}
+          <View style={style.articlesView}>
+            <View>
+              <View>
+                {/* Titre 2*/}
+                <Text style={style.titleh2}>{dataApi?.articles[1]?.title}</Text>
+                {/* Image */}
+                <Image
+                  style={style.tinyLogo}
+                  source={{ uri: `${dataApi?.articles[1]?.urlToImage}` }}
+                />
+                {/* Article */}
+                <Text style={style.descriptionArticle}>
+                  {dataApi?.articles[1]?.description}
+                  {/* Url de l'article complet */}
+                  <Text
+                    style={style.linkArticle}
+                    onPress={() =>
+                      Linking.openURL(`${dataApi?.articles[1]?.url}`)
+                    }
+                  >
+                    Link to full article
+                  </Text>
+                </Text>
 
-        <View style={style.container1}>
-          <Text> Name: {dataApi?.articles[6]?.source?.id}</Text>
-          <Text> </Text>
-          <Text> Author : {dataApi?.articles[6]?.author}</Text>
-          <Text> </Text>
-          <Text></Text>
-          <Text> Title : </Text>
-          <Text></Text>
-          <Text>{dataApi?.articles[6]?.title}</Text>
-          <Text> </Text>
-          <Text> Description : </Text>
-          <Text>{dataApi?.articles[6]?.description}</Text>
-          <Text> </Text>
-          <Text></Text>
-          <Text> Url : {dataApi?.articles[6]?.url}</Text>
-          <Text> </Text>
-          <Text> Published At: {dataApi?.articles[6]?.publishedAt} </Text>
-          <Text> </Text>
-          <Text></Text>
-          <Text> Content :</Text>
-          <Text> {dataApi?.articles[6]?.content}</Text>
+                {/* Source de l'article */}
+
+                <Text style={style.source}>
+                  Source :<Text>{dataApi?.articles[1]?.source?.id}</Text>
+                </Text>
+                {/* Auteur de l'article */}
+                <Text style={style.authorArticle}>
+                  By :<Text>{dataApi?.articles[1]?.author}</Text>
+                </Text>
+                {/* Date de publication */}
+                <Text style={style.published}>
+                  {dataApi?.articles[1]?.publishedAt}
+                </Text>
+              </View>
+            </View>
+          </View>
+
+          {/* *************************************************************************************************************************************************** */}
+          {/* Vue avec 3 eme article */}
+          <View style={style.articlesView}>
+            <View>
+              <View>
+                {/* Titre 2*/}
+                <Text style={style.titleh2}>{dataApi?.articles[2]?.title}</Text>
+                {/* Image */}
+                <Image
+                  style={style.tinyLogo}
+                  source={{ uri: `${dataApi?.articles[2]?.urlToImage}` }}
+                />
+                {/* Article */}
+                <Text style={style.descriptionArticle}>
+                  {dataApi?.articles[2]?.description}
+                  {/* Url de l'article complet */}
+                  <Text
+                    style={style.linkArticle}
+                    onPress={() =>
+                      Linking.openURL(`${dataApi?.articles[2]?.url}`)
+                    }
+                  >
+                    Link to full article
+                  </Text>
+                </Text>
+
+                {/* Source de l'article */}
+
+                <Text style={style.source}>
+                  Source :<Text>{dataApi?.articles[2]?.source?.id}</Text>
+                </Text>
+                {/* Auteur de l'article */}
+                <Text style={style.authorArticle}>
+                  By :<Text>{dataApi?.articles[2]?.author}</Text>
+                </Text>
+                {/* Date de publication */}
+                <Text style={style.published}>
+                  {dataApi?.articles[2]?.publishedAt}
+                </Text>
+              </View>
+            </View>
+          </View>
+
+          {/* *************************************************************************************************************************************************** */}
+          {/* Vue avec 4 eme article */}
+          <View style={style.articlesView}>
+            <View>
+              <View>
+                {/* Titre 2*/}
+                <Text style={style.titleh2}>{dataApi?.articles[3]?.title}</Text>
+                {/* Image */}
+                <Image
+                  style={style.tinyLogo}
+                  source={{ uri: `${dataApi?.articles[3]?.urlToImage}` }}
+                />
+                {/* Article */}
+                <Text style={style.descriptionArticle}>
+                  {dataApi?.articles[3]?.description}
+                  {/* Url de l'article complet */}
+                  <Text
+                    style={style.linkArticle}
+                    onPress={() =>
+                      Linking.openURL(`${dataApi?.articles[3]?.url}`)
+                    }
+                  >
+                    Link to full article
+                  </Text>
+                </Text>
+
+                {/* Source de l'article */}
+
+                <Text style={style.source}>
+                  Source :<Text>{dataApi?.articles[3]?.source?.id}</Text>
+                </Text>
+                {/* Auteur de l'article */}
+                <Text style={style.authorArticle}>
+                  By :<Text>{dataApi?.articles[3]?.author}</Text>
+                </Text>
+                {/* Date de publication */}
+                <Text style={style.published}>
+                  {dataApi?.articles[3]?.publishedAt}
+                </Text>
+              </View>
+            </View>
+          </View>
+          {/* *************************************************************************************************************************************************** */}
+          {/* Vue avec 5 eme article */}
+
+          <View style={style.articlesView}>
+            <View>
+              <View>
+                {/* Titre 2*/}
+                <Text style={style.titleh2}>{dataApi?.articles[4]?.title}</Text>
+                {/* Image */}
+                <Image
+                  style={style.tinyLogo}
+                  source={{ uri: `${dataApi?.articles[4]?.urlToImage}` }}
+                />
+                {/* Article */}
+                <Text style={style.descriptionArticle}>
+                  {dataApi?.articles[4]?.description}
+                  {/* Url de l'article complet */}
+                  <Text
+                    style={style.linkArticle}
+                    onPress={() =>
+                      Linking.openURL(`${dataApi?.articles[4]?.url}`)
+                    }
+                  >
+                    Link to full article
+                  </Text>
+                </Text>
+
+                {/* Source de l'article */}
+
+                <Text style={style.source}>
+                  Source :<Text>{dataApi?.articles[4]?.source?.id}</Text>
+                </Text>
+                {/* Auteur de l'article */}
+                <Text style={style.authorArticle}>
+                  By :<Text>{dataApi?.articles[4]?.author}</Text>
+                </Text>
+                {/* Date de publication */}
+                <Text style={style.published}>
+                  {dataApi?.articles[4]?.publishedAt}
+                </Text>
+              </View>
+            </View>
+          </View>
+
+          {/* *************************************************************************************************************************************************** */}
+          {/* Vue avec 6 eme article */}
+
+          <View style={style.articlesView}>
+            <View>
+              <View>
+                {/* Titre 2*/}
+                <Text style={style.titleh2}>{dataApi?.articles[5]?.title}</Text>
+                {/* Image */}
+                <Image
+                  style={style.tinyLogo}
+                  source={{ uri: `${dataApi?.articles[5]?.urlToImage}` }}
+                />
+                {/* Article */}
+                <Text style={style.descriptionArticle}>
+                  {dataApi?.articles[5]?.description}
+                  {/* Url de l'article complet */}
+                  <Text
+                    style={style.linkArticle}
+                    onPress={() =>
+                      Linking.openURL(`${dataApi?.articles[5]?.url}`)
+                    }
+                  >
+                    Link to full article
+                  </Text>
+                </Text>
+
+                {/* Source de l'article */}
+
+                <Text style={style.source}>
+                  Source :<Text>{dataApi?.articles[5]?.source?.id}</Text>
+                </Text>
+                {/* Auteur de l'article */}
+                <Text style={style.authorArticle}>
+                  By :<Text>{dataApi?.articles[5]?.author}</Text>
+                </Text>
+                {/* Date de publication */}
+                <Text style={style.published}>
+                  {dataApi?.articles[5]?.publishedAt}
+                </Text>
+              </View>
+            </View>
+          </View>
+
+          {/* *************************************************************************************************************************************************** */}
+          {/* Vue avec 7 eme article */}
+
+          <View style={style.articlesView}>
+            <View>
+              <View>
+                {/* Titre 2*/}
+                <Text style={style.titleh2}>{dataApi?.articles[6]?.title}</Text>
+                {/* Image */}
+                <Image
+                  style={style.tinyLogo}
+                  source={{ uri: `${dataApi?.articles[6]?.urlToImage}` }}
+                />
+                {/* Article */}
+                <Text style={style.descriptionArticle}>
+                  {dataApi?.articles[6]?.description}
+                  {/* Url de l'article complet */}
+                  <Text
+                    style={style.linkArticle}
+                    onPress={() =>
+                      Linking.openURL(`${dataApi?.articles[6]?.url}`)
+                    }
+                  >
+                    Link to full article
+                  </Text>
+                </Text>
+
+                {/* Source de l'article */}
+
+                <Text style={style.source}>
+                  Source :<Text>{dataApi?.articles[6]?.source?.id}</Text>
+                </Text>
+                {/* Auteur de l'article */}
+                <Text style={style.authorArticle}>
+                  By :<Text>{dataApi?.articles[6]?.author}</Text>
+                </Text>
+                {/* Date de publication */}
+                <Text style={style.published}>
+                  {dataApi?.articles[6]?.publishedAt}
+                </Text>
+              </View>
+            </View>
+          </View>
+
+          {/* *************************************************************************************************************************************************** */}
+          {/* Vue avec 8 eme article */}
+
+          <View style={style.articlesView}>
+            <View>
+              <View>
+                {/* Titre 2*/}
+                <Text style={style.titleh2}>{dataApi?.articles[7]?.title}</Text>
+                {/* Image */}
+                <Image
+                  style={style.tinyLogo}
+                  source={{ uri: `${dataApi?.articles[7]?.urlToImage}` }}
+                />
+                {/* Article */}
+                <Text style={style.descriptionArticle}>
+                  {dataApi?.articles[7]?.description}
+                  {/* Url de l'article complet */}
+                  <Text
+                    style={style.linkArticle}
+                    onPress={() =>
+                      Linking.openURL(`${dataApi?.articles[7]?.url}`)
+                    }
+                  >
+                    Link to full article
+                  </Text>
+                </Text>
+
+                {/* Source de l'article */}
+
+                <Text style={style.source}>
+                  Source :<Text>{dataApi?.articles[7]?.source?.id}</Text>
+                </Text>
+                {/* Auteur de l'article */}
+                <Text style={style.authorArticle}>
+                  By :<Text>{dataApi?.articles[7]?.author}</Text>
+                </Text>
+                {/* Date de publication */}
+                <Text style={style.published}>
+                  {dataApi?.articles[7]?.publishedAt}
+                </Text>
+              </View>
+            </View>
+          </View>
+
+          {/* *************************************************************************************************************************************************** */}
+          {/* Vue avec 9 eme article */}
+
+          <View style={style.articlesView}>
+            <View>
+              <View>
+                {/* Titre 2*/}
+                <Text style={style.titleh2}>{dataApi?.articles[8]?.title}</Text>
+                {/* Image */}
+                <Image
+                  style={style.tinyLogo}
+                  source={{ uri: `${dataApi?.articles[8]?.urlToImage}` }}
+                />
+                {/* Article */}
+                <Text style={style.descriptionArticle}>
+                  {dataApi?.articles[8]?.description}
+                  {/* Url de l'article complet */}
+                  <Text
+                    style={style.linkArticle}
+                    onPress={() =>
+                      Linking.openURL(`${dataApi?.articles[8]?.url}`)
+                    }
+                  >
+                    Link to full article
+                  </Text>
+                </Text>
+
+                {/* Source de l'article */}
+
+                <Text style={style.source}>
+                  Source :<Text>{dataApi?.articles[8]?.source?.id}</Text>
+                </Text>
+                {/* Auteur de l'article */}
+                <Text style={style.authorArticle}>
+                  By :<Text>{dataApi?.articles[8]?.author}</Text>
+                </Text>
+                {/* Date de publication */}
+                <Text style={style.published}>
+                  {dataApi?.articles[8]?.publishedAt}
+                </Text>
+              </View>
+            </View>
+          </View>
+
+          {/* *************************************************************************************************************************************************** */}
+          {/* Vue avec 10 eme article */}
+
+          <View style={style.articlesView}>
+            <View>
+              <View>
+                {/* Titre 2*/}
+                <Text style={style.titleh2}>{dataApi?.articles[9]?.title}</Text>
+                {/* Image */}
+                <Image
+                  style={style.tinyLogo}
+                  source={{ uri: `${dataApi?.articles[9]?.urlToImage}` }}
+                />
+                {/* Article */}
+                <Text style={style.descriptionArticle}>
+                  {dataApi?.articles[9]?.description}
+                  {/* Url de l'article complet */}
+                  <Text
+                    style={style.linkArticle}
+                    onPress={() =>
+                      Linking.openURL(`${dataApi?.articles[9]?.url}`)
+                    }
+                  >
+                    Link to full article
+                  </Text>
+                </Text>
+
+                {/* Source de l'article */}
+
+                <Text style={style.source}>
+                  Source :<Text>{dataApi?.articles[9]?.source?.id}</Text>
+                </Text>
+                {/* Auteur de l'article */}
+                <Text style={style.authorArticle}>
+                  By :<Text>{dataApi?.articles[9]?.author}</Text>
+                </Text>
+                {/* Date de publication */}
+                <Text style={style.published}>
+                  {dataApi?.articles[9]?.publishedAt}
+                </Text>
+              </View>
+            </View>
+          </View>
+
+          {/* *************************************************************************************************************************************************** */}
+          {/* Vue avec 11 eme article */}
+
+          <View style={style.articlesView}>
+            <View>
+              <View>
+                {/* Titre 2*/}
+                <Text style={style.titleh2}>
+                  {dataApi?.articles[10]?.title}
+                </Text>
+                {/* Image */}
+                <Image
+                  style={style.tinyLogo}
+                  source={{ uri: `${dataApi?.articles[10]?.urlToImage}` }}
+                />
+                {/* Article */}
+                <Text style={style.descriptionArticle}>
+                  {dataApi?.articles[10]?.description}
+                  {/* Url de l'article complet */}
+                  <Text
+                    style={style.linkArticle}
+                    onPress={() =>
+                      Linking.openURL(`${dataApi?.articles[10]?.url}`)
+                    }
+                  >
+                    Link to full article
+                  </Text>
+                </Text>
+
+                {/* Source de l'article */}
+
+                <Text style={style.source}>
+                  Source :<Text>{dataApi?.articles[10]?.source?.id}</Text>
+                </Text>
+                {/* Auteur de l'article */}
+                <Text style={style.authorArticle}>
+                  By :<Text>{dataApi?.articles[10]?.author}</Text>
+                </Text>
+                {/* Date de publication */}
+                <Text style={style.published}>
+                  {dataApi?.articles[10]?.publishedAt}
+                </Text>
+              </View>
+            </View>
+          </View>
+
+          {/* *************************************************************************************************************************************************** */}
+          {/* Vue avec 12 eme article */}
+
+          <View style={style.articlesView}>
+            <View>
+              <View>
+                {/* Titre 2*/}
+                <Text style={style.titleh2}>
+                  {dataApi?.articles[11]?.title}
+                </Text>
+                {/* Image */}
+                <Image
+                  style={style.tinyLogo}
+                  source={{ uri: `${dataApi?.articles[11]?.urlToImage}` }}
+                />
+                {/* Article */}
+                <Text style={style.descriptionArticle}>
+                  {dataApi?.articles[11]?.description}
+                  {/* Url de l'article complet */}
+                  <Text
+                    style={style.linkArticle}
+                    onPress={() =>
+                      Linking.openURL(`${dataApi?.articles[11]?.url}`)
+                    }
+                  >
+                    Link to full article
+                  </Text>
+                </Text>
+
+                {/* Source de l'article */}
+
+                <Text style={style.source}>
+                  Source :<Text>{dataApi?.articles[11]?.source?.id}</Text>
+                </Text>
+                {/* Auteur de l'article */}
+                <Text style={style.authorArticle}>
+                  By :<Text>{dataApi?.articles[11]?.author}</Text>
+                </Text>
+                {/* Date de publication */}
+                <Text style={style.published}>
+                  {dataApi?.articles[11]?.publishedAt}
+                </Text>
+              </View>
+            </View>
+          </View>
+
+          {/* *************************************************************************************************************************************************** */}
+          {/* Vue avec 13 eme article */}
+
+          <View style={style.articlesView}>
+            <View>
+              <View>
+                {/* Titre 2*/}
+                <Text style={style.titleh2}>
+                  {dataApi?.articles[12]?.title}
+                </Text>
+                {/* Image */}
+                <Image
+                  style={style.tinyLogo}
+                  source={{ uri: `${dataApi?.articles[12]?.urlToImage}` }}
+                />
+                {/* Article */}
+                <Text style={style.descriptionArticle}>
+                  {dataApi?.articles[12]?.description}
+                  {/* Url de l'article complet */}
+                  <Text
+                    style={style.linkArticle}
+                    onPress={() =>
+                      Linking.openURL(`${dataApi?.articles[12]?.url}`)
+                    }
+                  >
+                    Link to full article
+                  </Text>
+                </Text>
+
+                {/* Source de l'article */}
+
+                <Text style={style.source}>
+                  Source :<Text>{dataApi?.articles[12]?.source?.id}</Text>
+                </Text>
+                {/* Auteur de l'article */}
+                <Text style={style.authorArticle}>
+                  By :<Text>{dataApi?.articles[12]?.author}</Text>
+                </Text>
+                {/* Date de publication */}
+                <Text style={style.published}>
+                  {dataApi?.articles[12]?.publishedAt}
+                </Text>
+              </View>
+            </View>
+          </View>
+          {/* *************************************************************************************************************************************************** */}
+          {/* Vue avec 14 eme article */}
+
+          <View style={style.articlesView}>
+            <View>
+              <View>
+                {/* Titre 2*/}
+                <Text style={style.titleh2}>
+                  {dataApi?.articles[13]?.title}
+                </Text>
+                {/* Image */}
+                <Image
+                  style={style.tinyLogo}
+                  source={{ uri: `${dataApi?.articles[13]?.urlToImage}` }}
+                />
+                {/* Article */}
+                <Text style={style.descriptionArticle}>
+                  {dataApi?.articles[13]?.description}
+                  {/* Url de l'article complet */}
+                  <Text
+                    style={style.linkArticle}
+                    onPress={() =>
+                      Linking.openURL(`${dataApi?.articles[13]?.url}`)
+                    }
+                  >
+                    Link to full article
+                  </Text>
+                </Text>
+
+                {/* Source de l'article */}
+
+                <Text style={style.source}>
+                  Source :<Text>{dataApi?.articles[13]?.source?.id}</Text>
+                </Text>
+                {/* Auteur de l'article */}
+                <Text style={style.authorArticle}>
+                  By :<Text>{dataApi?.articles[13]?.author}</Text>
+                </Text>
+                {/* Date de publication */}
+                <Text style={style.published}>
+                  {dataApi?.articles[13]?.publishedAt}
+                </Text>
+              </View>
+            </View>
+          </View>
+          {/* *************************************************************************************************************************************************** */}
+          {/* Vue avec 15 eme article */}
+
+          <View style={style.articlesView}>
+            <View>
+              <View>
+                {/* Titre 2*/}
+                <Text style={style.titleh2}>
+                  {dataApi?.articles[14]?.title}
+                </Text>
+                {/* Image */}
+                <Image
+                  style={style.tinyLogo}
+                  source={{ uri: `${dataApi?.articles[14]?.urlToImage}` }}
+                />
+                {/* Article */}
+                <Text style={style.descriptionArticle}>
+                  {dataApi?.articles[14]?.description}
+                  {/* Url de l'article complet */}
+                  <Text
+                    style={style.linkArticle}
+                    onPress={() =>
+                      Linking.openURL(`${dataApi?.articles[14]?.url}`)
+                    }
+                  >
+                    Link to full article
+                  </Text>
+                </Text>
+
+                {/* Source de l'article */}
+
+                <Text style={style.source}>
+                  Source :<Text>{dataApi?.articles[14]?.source?.id}</Text>
+                </Text>
+                {/* Auteur de l'article */}
+                <Text style={style.authorArticle}>
+                  By :<Text>{dataApi?.articles[14]?.author}</Text>
+                </Text>
+                {/* Date de publication */}
+                <Text style={style.published}>
+                  {dataApi?.articles[14]?.publishedAt}
+                </Text>
+              </View>
+            </View>
+          </View>
+          {/* *************************************************************************************************************************************************** */}
+          {/* Vue avec 16 eme article */}
+
+          <View style={style.articlesView}>
+            <View>
+              <View>
+                {/* Titre 2*/}
+                <Text style={style.titleh2}>
+                  {dataApi?.articles[15]?.title}
+                </Text>
+                {/* Image */}
+                <Image
+                  style={style.tinyLogo}
+                  source={{ uri: `${dataApi?.articles[15]?.urlToImage}` }}
+                />
+                {/* Article */}
+                <Text style={style.descriptionArticle}>
+                  {dataApi?.articles[15]?.description}
+                  {/* Url de l'article complet */}
+                  <Text
+                    style={style.linkArticle}
+                    onPress={() =>
+                      Linking.openURL(`${dataApi?.articles[15]?.url}`)
+                    }
+                  >
+                    Link to full article
+                  </Text>
+                </Text>
+
+                {/* Source de l'article */}
+
+                <Text style={style.source}>
+                  Source :<Text>{dataApi?.articles[15]?.source?.id}</Text>
+                </Text>
+                {/* Auteur de l'article */}
+                <Text style={style.authorArticle}>
+                  By :<Text>{dataApi?.articles[15]?.author}</Text>
+                </Text>
+                {/* Date de publication */}
+                <Text style={style.published}>
+                  {dataApi?.articles[15]?.publishedAt}
+                </Text>
+              </View>
+            </View>
+          </View>
+          {/* *************************************************************************************************************************************************** */}
+          {/* Vue avec 17 eme article */}
+
+          <View style={style.articlesView}>
+            <View>
+              <View>
+                {/* Titre 2*/}
+                <Text style={style.titleh2}>
+                  {dataApi?.articles[16]?.title}
+                </Text>
+                {/* Image */}
+                <Image
+                  style={style.tinyLogo}
+                  source={{ uri: `${dataApi?.articles[16]?.urlToImage}` }}
+                />
+                {/* Article */}
+                <Text style={style.descriptionArticle}>
+                  {dataApi?.articles[16]?.description}
+                  {/* Url de l'article complet */}
+                  <Text
+                    style={style.linkArticle}
+                    onPress={() =>
+                      Linking.openURL(`${dataApi?.articles[16]?.url}`)
+                    }
+                  >
+                    Link to full article
+                  </Text>
+                </Text>
+
+                {/* Source de l'article */}
+
+                <Text style={style.source}>
+                  Source :<Text>{dataApi?.articles[16]?.source?.id}</Text>
+                </Text>
+                {/* Auteur de l'article */}
+                <Text style={style.authorArticle}>
+                  By :<Text>{dataApi?.articles[16]?.author}</Text>
+                </Text>
+                {/* Date de publication */}
+                <Text style={style.published}>
+                  {dataApi?.articles[16]?.publishedAt}
+                </Text>
+              </View>
+            </View>
+          </View>
+          {/* *************************************************************************************************************************************************** */}
+          {/* Vue avec 16 eme article */}
+
+          <View style={style.articlesView}>
+            <View>
+              <View>
+                {/* Titre 2*/}
+                <Text style={style.titleh2}>
+                  {dataApi?.articles[17]?.title}
+                </Text>
+                {/* Image */}
+                <Image
+                  style={style.tinyLogo}
+                  source={{ uri: `${dataApi?.articles[17]?.urlToImage}` }}
+                />
+                {/* Article */}
+                <Text style={style.descriptionArticle}>
+                  {dataApi?.articles[17]?.description}
+                  {/* Url de l'article complet */}
+                  <Text
+                    style={style.linkArticle}
+                    onPress={() =>
+                      Linking.openURL(`${dataApi?.articles[17]?.url}`)
+                    }
+                  >
+                    Link to full article
+                  </Text>
+                </Text>
+
+                {/* Source de l'article */}
+
+                <Text style={style.source}>
+                  Source :<Text>{dataApi?.articles[17]?.source?.id}</Text>
+                </Text>
+                {/* Auteur de l'article */}
+                <Text style={style.authorArticle}>
+                  By :<Text>{dataApi?.articles[17]?.author}</Text>
+                </Text>
+                {/* Date de publication */}
+                <Text style={style.published}>
+                  {dataApi?.articles[17]?.publishedAt}
+                </Text>
+              </View>
+            </View>
+          </View>
+          {/* *************************************************************************************************************************************************** */}
+          {/* Vue avec 18 eme article */}
+
+          <View style={style.articlesView}>
+            <View>
+              <View>
+                {/* Titre 2*/}
+                <Text style={style.titleh2}>
+                  {dataApi?.articles[17]?.title}
+                </Text>
+                {/* Image */}
+                <Image
+                  style={style.tinyLogo}
+                  source={{ uri: `${dataApi?.articles[17]?.urlToImage}` }}
+                />
+                {/* Article */}
+                <Text style={style.descriptionArticle}>
+                  {dataApi?.articles[17]?.description}
+                  {/* Url de l'article complet */}
+                  <Text
+                    style={style.linkArticle}
+                    onPress={() =>
+                      Linking.openURL(`${dataApi?.articles[17]?.url}`)
+                    }
+                  >
+                    Link to full article
+                  </Text>
+                </Text>
+
+                {/* Source de l'article */}
+
+                <Text style={style.source}>
+                  Source :<Text>{dataApi?.articles[17]?.source?.id}</Text>
+                </Text>
+                {/* Auteur de l'article */}
+                <Text style={style.authorArticle}>
+                  By :<Text>{dataApi?.articles[17]?.author}</Text>
+                </Text>
+                {/* Date de publication */}
+                <Text style={style.published}>
+                  {dataApi?.articles[17]?.publishedAt}
+                </Text>
+              </View>
+            </View>
+          </View>
+          {/* *************************************************************************************************************************************************** */}
+          {/* Vue avec 17 eme article */}
+
+          <View style={style.articlesView}>
+            <View>
+              <View>
+                {/* Titre 2*/}
+                <Text style={style.titleh2}>
+                  {dataApi?.articles[18]?.title}
+                </Text>
+                {/* Image */}
+                <Image
+                  style={style.tinyLogo}
+                  source={{ uri: `${dataApi?.articles[18]?.urlToImage}` }}
+                />
+                {/* Article */}
+                <Text style={style.descriptionArticle}>
+                  {dataApi?.articles[18]?.description}
+                  {/* Url de l'article complet */}
+                  <Text
+                    style={style.linkArticle}
+                    onPress={() =>
+                      Linking.openURL(`${dataApi?.articles[18]?.url}`)
+                    }
+                  >
+                    Link to full article
+                  </Text>
+                </Text>
+
+                {/* Source de l'article */}
+
+                <Text style={style.source}>
+                  Source :<Text>{dataApi?.articles[18]?.source?.id}</Text>
+                </Text>
+                {/* Auteur de l'article */}
+                <Text style={style.authorArticle}>
+                  By :<Text>{dataApi?.articles[18]?.author}</Text>
+                </Text>
+                {/* Date de publication */}
+                <Text style={style.published}>
+                  {dataApi?.articles[18]?.publishedAt}
+                </Text>
+
+                
+
+
+
+              </View>
+            </View>
+          </View>
         </View>
       </View>
     </ScrollView>
@@ -198,43 +924,73 @@ export default function Page1() {
 }
 
 const style = StyleSheet.create({
-  titre: {
+  ScrollView: {
+    paddingHorizontal: 20,
+  },
+  titleView: {
+    flex: 1,
+    height: 100,
+  },
+  titleh1: {
+    borderBottomColor: "black",
+    borderBottomWidth: 1,
     fontSize: 30,
     fontWeight: "bold",
     textAlign: "center",
+    alignItems: "center",
+    alignContent: "center",
+    justifyContent: "center",
   },
-
-  container: {
+  titleh2: {
+    marginTop: 10,
+    justifyContent: "center",
+    marginLeft: 10,
+    textTransform: "uppercase",
+    fontWeight: "bold",
+    width: 300,
+    fontSize: 20,
+  },
+  tinyLogo: {
+    flex: 1,
+    width: 350,
+    height: 300,
+    marginTop: 30,
+    borderRadius: 10,
+  },
+  articlesView: {
     flex: 1,
     flexDirection: "column",
-    paddingHorizontal: 1,
+    borderBottomColor: "black",
+    borderBottomWidth: 1,
+    paddingBottom: 20,
   },
+  descriptionArticle: {
+    marginTop: 10,
+    marginLeft: 10,
+    fontSize: 20,
+    width: 300,
+    fontStyle:"italic",
+  },
+  linkArticle: {
+    color: "blue",
+    fontStyle: "italic"
+     },
 
-  tinyLogo: {
-    width: 50,
-    height: 50,
+  source: {
+    textDecorationLine: "underline",
+    fontSize: 15,
+    marginLeft: 10,
+    marginTop: 10,
+    textTransform: "capitalize",
   },
-  container1: {
+  authorArticle: { marginTop: 10, marginLeft: 20, marginRight: 10 },
+  published: {
     flexDirection: "column",
-    margin: 20,
-    borderWidth: 2,
-    borderColor: "black",
-    textAlign: "center",
+    flex: 1,
     alignContent: "center",
     justifyContent: "center",
     alignItems: "center",
-  },
-  tinyLogo: {
-    width: 50,
-    height: 50,
+    textAlign: "center",
+    marginTop: 20,
   },
 });
-
-{
-  /* <Image
-}
-source={{
-  uri: 'https://s.yimg.com/os/creatr-uploaded-images/2021-10/3f1fdd10-3081-11ec-af7f-02d98e33fc20',
-}}
-/> */
-}
