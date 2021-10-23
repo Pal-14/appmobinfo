@@ -21,7 +21,7 @@ export default function HomePage() {
       <View style={style.logo}>
         <Image source={require("../../src/logoInfo.jpg")} style={style.logo} />
       </View>
-
+     
     </View>
   );
 }
@@ -30,7 +30,7 @@ const style = StyleSheet.create({
   containerLog: {
     flex: 1,
     alignContent: "center",
-    width:350,
+    width:"100%",
     paddingHorizontal:5    
   },
   containerTitre:{
@@ -52,7 +52,7 @@ const style = StyleSheet.create({
 
   logo:{
     flex:3,
-    width:350,
+    width:"100%",
     height:300,
     marginBottom:20,
     borderRadius:20

@@ -16,14 +16,10 @@ export default function Page1() {
         {/* Vue titre */}
         {/* Titre de la page */}
         <Text style={style.titleh1}>L'info en direct</Text>
-
       </View>
 
-      
-
-        {/* *************************************************************************************************************************************************** */}
-        {/* Vue avec 1 er article */}
-      
+      {/* *************************************************************************************************************************************************** */}
+      {/* Vue avec 1 er article */}
 
       <View style={style.articlesView}>
         <View>
@@ -909,16 +905,24 @@ export default function Page1() {
                 <Text style={style.published}>
                   {dataApi?.articles[18]?.publishedAt}
                 </Text>
-
-                
-
-
-
               </View>
             </View>
           </View>
         </View>
       </View>
+
+      <View style={style.footer}>
+        <Text style={style.txtFooter}>
+          &copy;PAL-14 For the <Text style={style.span}>"Bocal Académy"</Text> 
+          
+        <Text><Image style={style.fav}source={require("../../assets/favFace.png")}/></Text>
+        <Text><Image style={style.fav}source={require("../../assets/favTwitt.png")}/></Text>
+        <Text><Image style={style.fav}source={require("../../assets/favInsta.png")}/></Text>
+        <Text><Image style={style.fav}source={require("../../assets/favSnap.png")}/></Text>
+        <Text>thank you for giving me a very generous note because I spent time there</Text>
+        </Text>
+      </View>
+
     </ScrollView>
   );
 }
@@ -969,12 +973,12 @@ const style = StyleSheet.create({
     marginLeft: 10,
     fontSize: 20,
     width: 300,
-    fontStyle:"italic",
+    fontStyle: "italic",
   },
   linkArticle: {
     color: "blue",
-    fontStyle: "italic"
-     },
+    fontStyle: "italic",
+  },
 
   source: {
     textDecorationLine: "underline",
@@ -992,5 +996,29 @@ const style = StyleSheet.create({
     alignItems: "center",
     textAlign: "center",
     marginTop: 20,
+  },
+  footer: {
+    flexDirection: "column",
+    alignContent:"center",
+    alignItems:"center",
+    textAlign:"center"
+  },
+  txtFooter: {
+    flexDirection: "row",
+    alignContent: "center",
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: 20,
+    borderRadius: 5,
+    height: 100,
+    width: "100%",
+    paddingHorizontal:10
+  },
+  span: {
+    fontStyle: "italic",
+  },
+  fav: {
+    height: 20,
+    width: 20,
   },
 });
