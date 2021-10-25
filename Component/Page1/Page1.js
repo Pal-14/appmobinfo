@@ -7,7 +7,7 @@ import {
   Text,
   View,
   Image,
-  TouchableWithoutFeedback,
+  TouchableWithoutFeedback,Linking
 } from "react-native";
 
 import { getDataApi } from "../Outil/Fonction";
@@ -98,32 +98,9 @@ export default function Page1() {
                 </Text>
               </View>
             </View>
-            <View>
-              {/* ajout de boutton pour les likes et pas likes  */}
-
-              <View>
-                <Text>You liked this article: {like}</Text>
-              </View>
-
-              <TouchableWithoutFeedback onPress={onPress}>
-                <View style={style.button}>
-                  <Text>Like</Text>
-                </View>
-              </TouchableWithoutFeedback>
-              <View>
-                <View>
-                  <Text style={style.buttonText}>
-                    You don't like this article: {dontlike}
-                  </Text>
-                </View>
-                <TouchableWithoutFeedback onPress={toPress}>
-                  <View style={style.button}>
-                    <Text style={style.buttonText}>Don't Like</Text>
-                  </View>
-                </TouchableWithoutFeedback>
-              </View>
+           
             </View>
-          </View>
+          
 
           {/* *************************************************************************************************************************************************** */}
           {/* Vue avec 2 eme article */}
