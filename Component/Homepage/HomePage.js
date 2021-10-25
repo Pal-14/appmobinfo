@@ -1,14 +1,6 @@
 import React, { useEffect, useState } from "react";
-import {
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  Button,
-  Alert,
-  TextInput,
-} from "react-native";
-import Page1 from "../Page1/Page1";
+import {StyleSheet,Text,View,Image,Button,Alert,TextInput,} from "react-native";
+
 
 export default function HomePage() {
   return (
@@ -31,7 +23,8 @@ const style = StyleSheet.create({
     flex: 1,
     alignContent: "center",
     width:"100%",
-    paddingHorizontal:5    
+    paddingHorizontal:5 ,
+    marginTop:30   
   },
   containerTitre:{
     flex:0.5,

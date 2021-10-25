@@ -1,57 +1,45 @@
-import React, { useState, useEffect } from "react";
-import {
-  RefreshControl,
-  SafeAreaView,
-  ScrollView,
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  TouchableWithoutFeedback,
-} from "react-native";
-
-import { getDataApi } from "../Outil/Fonction";
+import React, { useState , useEffect} from 'react';
+import { RefreshControl, SafeAreaView, ScrollView, StyleSheet, Text, View, Image } from 'react-native';
+import { getDataApi } from '../Outil/Fonction';
 
 const wait = (timeout) => {
-  return new Promise((resolve) => setTimeout(resolve, timeout));
-};
+  return new Promise(resolve => setTimeout(resolve, timeout));
+}
 
-export default function Page1() {
-  const [dataApi, setDataApi] = useState();
+export default Page4 = () => {
+  
+  
+  const [dataApi, setDataApi] =  React.useState(false);
 
-  const [refreshing, setRefreshing] = React.useState(false);
+  const onRefresh = React.useCallback(() => {
+    setDataApi(true);
+    wait(2000).then(() => setDataApi(false));
+  }, []);
 
-  const [like, setLike] = useState(0);
-  const [dontlike, setDontlike] = useState(0);
+
 
   useEffect(() => {
     getDataApi(setDataApi);
   }, [dataApi === undefined]);
-
-  const onRefresh = React.useCallback(() => {
-    setRefreshing(true);
-    wait(2000).then(() => setRefreshing(false));
-  }, []);
-
-  const onPress = () => {
-    setLike(like + 1);
-  };
-  const toPress = () => {
-    setDontlike(dontlike + 1);
-  };
-
   return (
-    <ScrollView
-      horizontal={false}
-      style={style.ScrollView}
-      refreshControl={
-        <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
-      }
-    >
-      <View style={style.titleView}>
+    <SafeAreaView style={style.safeView} >
+      <ScrollView
+        contentContainerStyle={style.ScrollView}
+        refreshControl={
+          <RefreshControl
+            refreshing={refreshing}
+            onRefresh={onRefresh}
+          />
+        }
+      > 
+
+
+
+
+<View style={style.titleView}>
         {/* Vue titre */}
         {/* Titre de la page */}
-        <Text style={style.titleh1}>Live information</Text>
+        <Text style={style.titleh1}>L'info en direct</Text>
       </View>
 
       {/* *************************************************************************************************************************************************** */}
@@ -96,31 +84,6 @@ export default function Page1() {
                 <Text style={style.published}>
                   {dataApi?.articles[0]?.publishedAt}
                 </Text>
-              </View>
-            </View>
-            <View>
-              {/* ajout de boutton pour les likes et pas likes  */}
-
-              <View>
-                <Text>You liked this article: {like}</Text>
-              </View>
-
-              <TouchableWithoutFeedback onPress={onPress}>
-                <View style={style.button}>
-                  <Text>Like</Text>
-                </View>
-              </TouchableWithoutFeedback>
-              <View>
-                <View>
-                  <Text style={style.buttonText}>
-                    You don't like this article: {dontlike}
-                  </Text>
-                </View>
-                <TouchableWithoutFeedback onPress={toPress}>
-                  <View style={style.button}>
-                    <Text style={style.buttonText}>Don't Like</Text>
-                  </View>
-                </TouchableWithoutFeedback>
               </View>
             </View>
           </View>
@@ -974,42 +937,25 @@ export default function Page1() {
 
       <View style={style.footer}>
         <Text style={style.txtFooter}>
-          &copy;PAL-14 For the <Text style={style.span}>"Bocal Académy"</Text>
-          <Text>
-            <Image
-              style={style.fav}
-              source={require("../../assets/favFace.png")}
-            />
-          </Text>
-          <Text>
-            <Image
-              style={style.fav}
-              source={require("../../assets/favTwitt.png")}
-            />
-          </Text>
-          <Text>
-            <Image
-              style={style.fav}
-              source={require("../../assets/favInsta.png")}
-            />
-          </Text>
-          <Text>
-            <Image
-              style={style.fav}
-              source={require("../../assets/favSnap.png")}
-            />
-          </Text>
-          <Text>Thank you for the package</Text>
+          &copy;PAL-14 For the <Text style={style.span}>"Bocal Académy"</Text> 
+          
+        <Text><Image style={style.fav}source={require("../../assets/favFace.png")}/></Text>
+        <Text><Image style={style.fav}source={require("../../assets/favTwitt.png")}/></Text>
+        <Text><Image style={style.fav}source={require("../../assets/favInsta.png")}/></Text>
+        <Text><Image style={style.fav}source={require("../../assets/favSnap.png")}/></Text>
+        <Text>Thank you for the package</Text>
         </Text>
       </View>
-    </ScrollView>
+
+    </ScrollView></SafeAreaView>
   );
 }
 
 const style = StyleSheet.create({
+    safeView:{paddingHorizontal:20},
   ScrollView: {
     paddingHorizontal: 20,
-    marginTop: 50,
+    marginTop:50
   },
   titleView: {
     flex: 1,
@@ -1031,12 +977,12 @@ const style = StyleSheet.create({
     marginLeft: 10,
     textTransform: "uppercase",
     fontWeight: "bold",
-    width: "98%",
+    width: 300,
     fontSize: 20,
   },
   tinyLogo: {
     flex: 1,
-    width: "100%",
+    width: 350,
     height: 300,
     marginTop: 30,
     borderRadius: 10,
@@ -1052,7 +998,7 @@ const style = StyleSheet.create({
     marginTop: 10,
     marginLeft: 10,
     fontSize: 20,
-    width: "100%",
+    width: 300,
     fontStyle: "italic",
   },
   linkArticle: {
@@ -1077,20 +1023,11 @@ const style = StyleSheet.create({
     textAlign: "center",
     marginTop: 20,
   },
-  buttonText: {},
-  button: {
-    alignItems: "center",
-    backgroundColor: "lightgrey",
-    padding: 10,
-    width: "auto",
-    height: 30,
-    marginBottom: 20,
-  },
   footer: {
     flexDirection: "column",
-    alignContent: "center",
-    alignItems: "center",
-    textAlign: "center",
+    alignContent:"center",
+    alignItems:"center",
+    textAlign:"center"
   },
   txtFooter: {
     flexDirection: "row",
@@ -1101,7 +1038,7 @@ const style = StyleSheet.create({
     borderRadius: 5,
     height: 100,
     width: "100%",
-    paddingHorizontal: 10,
+    paddingHorizontal:10
   },
   span: {
     fontStyle: "italic",

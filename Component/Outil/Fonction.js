@@ -1,6 +1,9 @@
+const key =  `0963fe2eb42147a8a00eea4752228720`
+const serverUrl = `https://newsapi.org/v2/everything?q=Apple&from=2021-10-21&sortBy=popularity&apiKey=`
+
+
 function getDataApi(setDataApi) {
-  fetch(
-    "https://newsapi.org/v2/everything?q=Apple&from=2021-10-21&sortBy=popularity&apiKey=0963fe2eb42147a8a00eea4752228720"
+  fetch(`${serverUrl}${key}`
   )
     .then((response) => {
       return response.json();
@@ -14,3 +17,4 @@ function getDataApi(setDataApi) {
 module.exports = {
   getDataApi,
 };
+

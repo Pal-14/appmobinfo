@@ -1,37 +1,82 @@
-import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import React, { useState } from "react";
+import {
+  Button,
+  Platform,
+  SafeAreaView,
+  StatusBar,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
 
-function Page2() {}
-Page2 = () => {
+const STYLES = ["default", "dark-content", "light-content"];
+const TRANSITIONS = ["fade", "slide", "none"];
+
+export default page2 = () => {
+  const [hidden, setHidden] = useState(false);
+  const [statusBarStyle, setStatusBarStyle] = useState(STYLES[0]);
+  const [statusBarTransition, setStatusBarTransition] = useState(
+    TRANSITIONS[0]
+  );
+
+  const changeStatusBarVisibility = () => setHidden(!hidden);
+
+  const changeStatusBarStyle = () => {
+    const styleId = STYLES.indexOf(statusBarStyle) + 1;
+    if (styleId === STYLES.length) {
+      setStatusBarStyle(STYLES[0]);
+    } else {
+      setStatusBarStyle(STYLES[styleId]);
+    }
+  };
+
+ 
+
   return (
-    <View style={{flex:1,flexDirection:"column"}}>
+    <SafeAreaView style={styles.container}>
+      <StatusBar
+        animated={true}
+        backgroundColor="#AEB7B3"
+        barStyle={statusBarStyle}
+        showHideTransition={statusBarTransition}
+        hidden={hidden}
+      />
+      
+    
+      
 
-       <View style={{flexDirection:"row",flex:1}}>
-      <View style={{flexDirection:"column",flex:2}}>
-        <Text>name: </Text>
+      <View style={styles.buttonsContainer}>
+        <View style={{ margin: 10 }}>
+        <Button
+          color="#AEB7B3"
+          title="Visibility StatusBar"
+          onPress={changeStatusBarVisibility}
+        /></View>
 
-        <Text>Page 2</Text>
-
-        <Text>Page 2</Text>
-
-        <Text>Page 2</Text>
-
-        <Text>Page 2</Text>
-
-        <Text>Page 2</Text>
-      </View>
-        <View style={{flexDirection:"column",flex:1}}>
-            <Text>img </Text>
-            <Text>link </Text>
-            <Text>url </Text>
+        <View style={{ margin: 10 }}>
+          <Button
+            color="#AFBFC0"
+            title="StatusBar Icons Style"
+            onPress={changeStatusBarStyle}
+          />
         </View>
-
-</View> 
-
-    </View>
+      </View>
+    </SafeAreaView>
   );
 };
 
-export default Page2;
-
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    backgroundColor: "#3D5A6C",
+    
+  },
+  buttonsContainer: {
+    padding: 10,
+  },
+  textStyle: {
+    textAlign: "center",
+    marginBottom: 15,
+  },
+});
