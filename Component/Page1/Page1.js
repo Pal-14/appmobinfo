@@ -21,9 +21,6 @@ export default function Page1() {
 
   const [refreshing, setRefreshing] = React.useState(false);
 
-  const [like, setLike] = useState(0);
-  const [dontlike, setDontlike] = useState(0);
-
   useEffect(() => {
     getDataApi(setDataApi);
   }, [dataApi === undefined]);
@@ -32,13 +29,7 @@ export default function Page1() {
     setRefreshing(true);
     wait(2000).then(() => setRefreshing(false));
   }, []);
-
-  const onPress = () => {
-    setLike(like + 1);
-  };
-  const toPress = () => {
-    setDontlike(dontlike + 1);
-  };
+ 
 
   return (
     <ScrollView
