@@ -7,7 +7,8 @@ import {
   Text,
   View,
   Image,
-  TouchableWithoutFeedback,Linking
+  TouchableWithoutFeedback,
+  Linking,
 } from "react-native";
 
 import { getDataApi } from "../Outil/Fonction";
@@ -29,7 +30,6 @@ export default function Page1() {
     setRefreshing(true);
     wait(2000).then(() => setRefreshing(false));
   }, []);
- 
 
   return (
     <ScrollView
@@ -89,9 +89,7 @@ export default function Page1() {
                 </Text>
               </View>
             </View>
-           
-            </View>
-          
+          </View>
 
           {/* *************************************************************************************************************************************************** */}
           {/* Vue avec 2 eme article */}
@@ -967,9 +965,11 @@ export default function Page1() {
               source={require("../../assets/favSnap.png")}
             />
           </Text>
-          <Text>Thank you for the package</Text>
+          
         </Text>
       </View>
+
+      <View><Text style={style.thanks}>Thank you for the package</Text></View>
     </ScrollView>
   );
 }
@@ -1067,9 +1067,14 @@ const style = StyleSheet.create({
     justifyContent: "center",
     marginTop: 20,
     borderRadius: 5,
-    height: 100,
+    height: 30,
     width: "100%",
     paddingHorizontal: 10,
+    textAlign: "center",
+  },
+  thanks:{
+    textAlign:"center",
+    marginBottom:20,
   },
   span: {
     fontStyle: "italic",
