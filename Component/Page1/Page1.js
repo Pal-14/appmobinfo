@@ -1,15 +1,6 @@
 import React, { useState, useEffect } from "react";
 import {
-  RefreshControl,
-  SafeAreaView,
-  ScrollView,
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  TouchableWithoutFeedback,
-  Linking,
-} from "react-native";
+  RefreshControl,SafeAreaView,ScrollView,StyleSheet,Text,View,Image,TouchableWithoutFeedback,Linking,} from "react-native";
 
 import { getDataApi } from "../Outil/Fonction";
 
@@ -965,11 +956,12 @@ export default function Page1() {
               source={require("../../assets/favSnap.png")}
             />
           </Text>
-          
         </Text>
       </View>
 
-      <View><Text style={style.thanks}>Thank you for the package</Text></View>
+      <View>
+        <Text style={style.thanks}>Thank you for the package</Text>
+      </View>
     </ScrollView>
   );
 }
@@ -1072,9 +1064,9 @@ const style = StyleSheet.create({
     paddingHorizontal: 10,
     textAlign: "center",
   },
-  thanks:{
-    textAlign:"center",
-    marginBottom:20,
+  thanks: {
+    textAlign: "center",
+    marginBottom: 20,
   },
   span: {
     fontStyle: "italic",
